@@ -788,6 +788,26 @@ addEventListener('keydown', ({ code }) => {
 			keys.d = { pressed: true };
 			lastKey = 'd';
 			break;
+
+		case 'ArrowUp':
+			keys.w = { pressed: true };
+			lastKey = 'w';
+			break;
+
+		case 'ArrowLeft':
+			keys.a = { pressed: true };
+			lastKey = 'a';
+			break;
+
+		case 'ArrowDown':
+			keys.s = { pressed: true };
+			lastKey = 's';
+			break;
+
+		case 'ArrowRight':
+			keys.d = { pressed: true };
+			lastKey = 'd';
+			break;
 	}
 });
 
@@ -808,6 +828,22 @@ addEventListener('keyup', ({ code }) => {
 			break;
 
 		case 'KeyD':
+			keys.d = { pressed: false };
+			break;
+
+		case 'ArrowUp':
+			keys.w = { pressed: false };
+			break;
+
+		case 'ArrowLeft':
+			keys.a = { pressed: false };
+			break;
+
+		case 'ArrowDown':
+			keys.s = { pressed: false };
+			break;
+
+		case 'ArrowRight':
 			keys.d = { pressed: false };
 			break;
 	}
