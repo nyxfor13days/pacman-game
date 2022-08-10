@@ -1,15 +1,110 @@
-<style>
-	body {
-		margin: 0;
-		padding: 0;
-		border: 0;
-		outline: 0;
-		background-color: #18181b;
-		box-sizing: border-box;
-	}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pacman Game</title>
+		<script src="./index.js" type="module"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					container: {
+						center: true,
+						padding: '0 1rem',
+					},
+				},
+			};
+		</script>
+		<style type="text/tailwindcss">
+			@layer base {
+				* {
+					@apply m-0 p-0 border-0 outline-0;
+				}
 
-<canvas></canvas>
+				body {
+					@apply bg-zinc-900 text-zinc-50 font-sans;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Win Screen -->
+		<div
+			id="winScreenEl"
+			class="fixed top-0 left-0 bg-zinc-900/90 backdrop-blur z-50 invisible"
+		>
+			<div
+				class="flex flex-col items-center justify-center gap-4 h-screen w-screen"
+			>
+				<h1 class="text-5xl font-bold text-lime-500">
+					Congratulations
+				</h1>
+				<span class="text-lg"
+					>You Win... this achievement means
+					<span class="text-zinc-700 line-through">nothing</span>
+					everything IRL.</span
+				>
+				<div class="flex gap-4">
+					<button
+						onclick="window.location.reload()"
+						class="text-base uppercase text-zinc-900 font-bold bg-lime-500 px-4 py-1 rounded-full hover:bg-lime-700 transition-all"
+					>
+						Play Again
+					</button>
 
-<script src="./index.js" type="module"></script>
+					<button
+						onclick='window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank")'
+						class="text-base uppercase text-zinc-900 font-bold bg-zinc-200 px-4 py-1 rounded-full hover:bg-zinc-500 transition-all"
+					>
+						Click here for surprise...
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- ### ###### -->
+
+		<!-- Game Over Screen -->
+		<div
+			id="gameOverScreenEl"
+			class="fixed top-0 left-0 bg-zinc-900/90 backdrop-blur z-50 invisible"
+		>
+			<div
+				class="flex flex-col items-center justify-center gap-4 h-screen w-screen"
+			>
+				<h1 class="text-5xl font-bold text-red-600">Game Over</h1>
+				<h2 class="text-xl font-bold">
+					Total Score: <span id="totalScoreEl">0</span>
+				</h2>
+				<span class="text-lg"
+					>It's fine... Don't give up you are
+					<span class="text-zinc-700 line-through">probably</span>
+					not a disappointment.</span
+				>
+				<button
+					onclick="window.location.reload()"
+					class="text-base uppercase text-zinc-50 font-bold bg-red-600 px-4 py-1 rounded-full hover:bg-red-800 transition-all"
+				>
+					Play Again
+				</button>
+			</div>
+		</div>
+		<!-- #### #### ###### -->
+
+		<!-- Game -->
+		<div class="fixed top-4 left-4">
+			<p class="font-bold">
+				<span>Score: </span>
+				<span id="scoreEl">0</span>
+			</p>
+		</div>
+
+		<!-- Canvas -->
+		<div class="flex justify-center items-center h-screen overflow-hidden">
+			<canvas></canvas>
+		</div>
+		<!-- #### -->
+	</body>
+</html>
 
